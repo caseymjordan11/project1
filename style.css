@@ -1,0 +1,31 @@
+.header{
+  display: flex;
+  justify-content: center;
+}
+
+.intro {
+  display: flex;
+  justify-content: center;
+}
+
+.instructions {
+  display: flex;
+  justify-content: center;
+}
+
+.choice {
+  display: flex;
+  justify-content:center;
+  background: white;
+  border: solid black 4px;
+}
+
+.game {
+  display: flex;
+  justify-content: center;
+}
+
+.h1 {
+  display: flex;
+  justify-content: center;
+}
