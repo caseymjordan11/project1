@@ -4,6 +4,9 @@ const redBox = $('.game #red')
 const blueBox = $('.game #blue')
 const greenBox = $('.game #green')
 const yellowBox = $('.game #yellow')
+const nextLevel = $('#nextLevel')
+nextLevel.on('click', addLevel)
+
 
 var order = []
 function random(){
@@ -12,6 +15,13 @@ function random(){
   order.push(num)
   }
 }
+
+function addLevel () {
+  var num = Math.floor(Math.random()*4)
+  order.push(num)
+}
+
+
 
 var flash = {
   redFlash: function() {
@@ -33,18 +43,25 @@ var flash = {
 }
 
 var keys = Object.keys(flash)
+var flashFunc = []
+var counter = 0
 
-function startLevel () {
-  random()
-  flash[keys[order[0]]]()
-  setTimeout(flash[keys[order[1]]], 800)
-  setTimeout(flash[keys[order[2]]], 1500)
-  setTimeout(flash[keys[order[3]]], 2200)
+function flashOne (i) {
+  counter += 800
+  flashFunc.push((setTimeout(flash[keys[order[i]]],counter)))
   console.log(order)
-  order = []
 }
 
-
+function startLevel () {
+  if (order.length === 0) {
+  random()
+  for (i=0; i<order.length; i++){
+  flashOne(i)}
+} else {
+  counter = 0
+  for (i=0; i<order.length; i++){
+  flashOne(i)}
+}}
 
 
 
