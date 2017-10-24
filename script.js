@@ -36,10 +36,11 @@ var keys = Object.keys(flash)
 
 function startLevel () {
   random()
-  for (i=0; i<4; i++){
-    f = keys[order[i]]
-    flash[f]();
-  }
+  flash[keys[order[0]]]()
+  setTimeout(flash[keys[order[1]]], 800)
+  setTimeout(flash[keys[order[2]]], 1500)
+  setTimeout(flash[keys[order[3]]], 2200)
+  console.log(order)
   order = []
 }
 
