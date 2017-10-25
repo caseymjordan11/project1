@@ -154,8 +154,14 @@ function checkEqual () {
       $('.level').text('Wrong! You lose. Try Again.')
     } else if (userInputTracker.length === order.length && userInputTracker[(userInputTracker.length-1)] === order[(order.length -1)]) {
       userInputTracker = []
-      addLevel()
       level+= 1
+      addLevel()
+      if (hard.is(':checked')){
+      order = []
+      for (i=1; i<= level+1; i++){
+        addLevel()
+      }
+    }
       $('.level').text('Level: '+level)
       break
     }
