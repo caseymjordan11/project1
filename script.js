@@ -4,8 +4,6 @@ const redBox = $('.game #red')
 const blueBox = $('.game #blue')
 const greenBox = $('.game #green')
 const yellowBox = $('.game #yellow')
-const nextLevel = $('#nextLevel')
-nextLevel.on('click', addLevel)
 
 
 var order = []
@@ -57,8 +55,6 @@ function startLevel () {
   if (order.length === 0) {
   random()
   random()
-  random()
-  random()
   for (i=0; i<order.length; i++){
   flashOne(i)}
 } else {
@@ -70,31 +66,31 @@ function startLevel () {
 
 
 function redLoad(){
-  redBox.css('background', 'red')
+  redBox.css('opacity', '1')
 }
 function resetRed(){
-  redBox.css('background', 'white')
+  redBox.css('opacity', '.4')
 }
 
 function blueLoad(){
-  blueBox.css('background', 'blue')
+  blueBox.css('opacity', '1')
 }
 function resetBlue(){
-  blueBox.css('background', 'white')
+  blueBox.css('opacity', '.4')
 }
 
 function yellowLoad(){
-  yellowBox.css('background', 'yellow')
+  yellowBox.css('opacity', '1')
 }
 function resetYellow(){
-  yellowBox.css('background', 'white')
+  yellowBox.css('opacity', '.4')
 }
 
 function greenLoad(){
-  greenBox.css('background', 'green')
+  greenBox.css('opacity', '1')
 }
 function resetGreen(){
-  greenBox.css('background', 'white')
+  greenBox.css('opacity', '.4')
 }
 
 var userInputTracker = []
@@ -108,9 +104,12 @@ function checkEqual () {
     if (parseFloat(userInputTracker[i]) !== parseFloat(order[i])){
       alert('You lose')
       userInputTracker = []
+      order = []
+      counter = 0
     } else if (userInputTracker.length === order.length && userInputTracker[(userInputTracker.length-1)] === order[(order.length -1)]) {
-      alert('you win')
+      alert('Correct! Next Level:')
       userInputTracker = []
+      addLevel()
       break
     }
   }

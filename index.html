@@ -9,7 +9,11 @@
     <h1 class = header>Simon</h1>
     <h3 class = "instructions">Instructions</h1>
     <p class = "intro">Simon is a memorization game. Watch the pattern and then repeat it back. Levels increase in difficutly. Good luck!</p>
-
+    <div class="difficulty">
+      <input type="radio" name="difficulty" value="easy">Easy</input>
+      <input type="radio" name="difficulty" value="medium">Medium</input>
+      <input type="radio" name="difficulty" value="hard">Hard</input>
+    </div>
     <div class="game">
       <div id="red">
       </div>
@@ -20,11 +24,8 @@
       <div id="yellow">
       </div>
     </div>
-
-
     <div class="button">
     <button type="button" id = button>Start Level</button>
-    <button type="button" id = nextLevel>Next Level</button>
     </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <script type="text/javascript" src="script.js"></script>

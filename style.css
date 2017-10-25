@@ -14,7 +14,8 @@
 }
 
 #blue {
-  background: white;
+  background: blue;
+  opacity: .4;
   border: solid black 4px;
   width: 200px;
   height: 200px;
@@ -22,7 +23,8 @@
 }
 
 #green {
-  background: white;
+  background: green;
+  opacity: .4;
   border: solid black 4px;
   width: 200px;
   height: 200px;
@@ -30,7 +32,8 @@
 }
 
 #red {
-  background: white;
+  background: red;
+  opacity: .4;
   border: solid black 4px;
   width: 200px;
   height: 200px;
@@ -38,7 +41,8 @@
 }
 
 #yellow {
-  background: white;
+  background: yellow;
+  opacity: .4;
   border: solid black 4px;
   width: 200px;
   height: 200px;
@@ -46,6 +50,11 @@
 }
 
 .game {
+  display: flex;
+  justify-content: center;
+}
+
+.difficulty {
   display: flex;
   justify-content: center;
 }
