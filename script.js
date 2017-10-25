@@ -91,18 +91,6 @@ function startLevel () {
   for (i=0; i<order.length; i++){
   flashOne(i, 500)}
   }
-} else if (extreme.is(':checked')){
-  if (order.length === 0) {
-  random()
-  random()
-  $('.level').text('Level: '+level)
-  for (i=0; i<order.length; i++){
-  flashOne(i)}
-} else {
-  counter = 0
-  for (i=0; i<order.length; i++){
-  flashOne(i)}
-}
 }
 }
 
