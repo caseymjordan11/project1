@@ -49,6 +49,11 @@
   margin: 5px;
 }
 
+.level {
+  display: flex;
+  justify-content: center;
+}
+
 .game {
   display: flex;
   justify-content: center;

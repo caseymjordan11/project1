@@ -4,7 +4,10 @@ const redBox = $('.game #red')
 const blueBox = $('.game #blue')
 const greenBox = $('.game #green')
 const yellowBox = $('.game #yellow')
-
+const easy = $('#easy')
+const medium = $('#medium')
+const hard = $('#hard')
+const extreme = $('#extreme')
 
 var order = []
 
@@ -26,19 +29,19 @@ function addLevel () {
 var flash = {
   redFlash: function() {
     redLoad()
-    setTimeout(resetRed, 600)
+    setTimeout(resetRed, 400)
   },
   blueFlash: function(){
     blueLoad()
-    setTimeout(resetBlue, 600)
+    setTimeout(resetBlue, 400)
   },
   greenFlash: function() {
     greenLoad()
-    setTimeout(resetGreen, 600)
+    setTimeout(resetGreen, 400)
   },
   yellowFlash: function() {
     yellowLoad()
-    setTimeout(resetYellow, 600)
+    setTimeout(resetYellow, 400)
   }
 }
 
@@ -46,22 +49,62 @@ var keys = Object.keys(flash)
 var flashFunc = []
 var counter = 0
 
-function flashOne (i) {
-  counter += 800
+function flashOne (i, count) {
+  counter += count
   flashFunc.push((setTimeout(flash[keys[order[i]]],counter)))
 }
 
 function startLevel () {
+  if (easy.is(':checked')) {
+    if (order.length === 0) {
+    random()
+    random()
+    $('.level').text('Level: '+level)
+    for (i=0; i<order.length; i++){
+    flashOne(i, 1000)}
+  } else {
+    counter = 0
+    for (i=0; i<order.length; i++){
+    flashOne(i, 1000)}
+  }
+} else if (medium.is(':checked')) {
   if (order.length === 0) {
   random()
   random()
+  $('.level').text('Level: '+level)
+  for (i=0; i<order.length; i++){
+  flashOne(i, 500)}
+  } else {
+  counter = 0
+  for (i=0; i<order.length; i++){
+  flashOne(i, 500)}
+  }
+} else if (hard.is(':checked')){
+  if (order.length === 0) {
+  random()
+  random()
+  $('.level').text('Level: '+level)
+  for (i=0; i<order.length; i++){
+  flashOne(i, 500)}
+} else {
+  counter = 0
+  for (i=0; i<order.length; i++){
+  flashOne(i, 500)}
+  }
+} else if (extreme.is(':checked')){
+  if (order.length === 0) {
+  random()
+  random()
+  $('.level').text('Level: '+level)
   for (i=0; i<order.length; i++){
   flashOne(i)}
 } else {
   counter = 0
   for (i=0; i<order.length; i++){
   flashOne(i)}
-}}
+}
+}
+}
 
 
 
@@ -99,17 +142,21 @@ blueBox.on('click', recordClickBlue)
 greenBox.on('click', recordClickGreen)
 yellowBox.on('click', recordClickYellow)
 
+var level = 1
+
 function checkEqual () {
   for (i=0; i<=userInputTracker.length-1; i++) {
     if (parseFloat(userInputTracker[i]) !== parseFloat(order[i])){
-      alert('You lose')
       userInputTracker = []
       order = []
       counter = 0
+      level = 1
+      $('.level').text('Wrong! You lose. Try Again.')
     } else if (userInputTracker.length === order.length && userInputTracker[(userInputTracker.length-1)] === order[(order.length -1)]) {
-      alert('Correct! Next Level:')
       userInputTracker = []
       addLevel()
+      level+= 1
+      $('.level').text('Level: '+level)
       break
     }
   }
@@ -121,17 +168,21 @@ function userInput (val) {
 }
 
 function recordClickRed () {
-userInput(0)
+  flash.redFlash()
+  userInput(0)
 }
 
 function recordClickBlue () {
-userInput(1)
+  flash.blueFlash()
+  userInput(1)
 }
 
 function recordClickGreen () {
-userInput(2)
+  flash.greenFlash()
+  userInput(2)
 }
 
 function recordClickYellow () {
-userInput(3)
+  flash.yellowFlash()
+  userInput(3)
 }
