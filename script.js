@@ -9,15 +9,17 @@ nextLevel.on('click', addLevel)
 
 
 var order = []
-function random(){
-  for (i=0; i<4; i++) {
-  var num = Math.floor(Math.random()*4)
+
+
+function random() {
+  var num = (Math.floor(Math.random() * (3-0+1)) + 0)
   order.push(num)
-  }
 }
 
+
+
 function addLevel () {
-  var num = Math.floor(Math.random()*4)
+  var num = (Math.floor(Math.random() * (3-0+1)) + 0)
   order.push(num)
 }
 
@@ -49,11 +51,13 @@ var counter = 0
 function flashOne (i) {
   counter += 800
   flashFunc.push((setTimeout(flash[keys[order[i]]],counter)))
-  console.log(order)
 }
 
 function startLevel () {
   if (order.length === 0) {
+  random()
+  random()
+  random()
   random()
   for (i=0; i<order.length; i++){
   flashOne(i)}
@@ -91,4 +95,44 @@ function greenLoad(){
 }
 function resetGreen(){
   greenBox.css('background', 'white')
+}
+
+var userInputTracker = []
+redBox.on('click', recordClickRed)
+blueBox.on('click', recordClickBlue)
+greenBox.on('click', recordClickGreen)
+yellowBox.on('click', recordClickYellow)
+
+function checkEqual () {
+  for (i=0; i<=userInputTracker.length-1; i++) {
+    if (parseFloat(userInputTracker[i]) !== parseFloat(order[i])){
+      alert('You lose')
+      userInputTracker = []
+    } else if (userInputTracker.length === order.length && userInputTracker[(userInputTracker.length-1)] === order[(order.length -1)]) {
+      alert('you win')
+      userInputTracker = []
+      break
+    }
+  }
+}
+
+function userInput (val) {
+  userInputTracker.push(val)
+  checkEqual()
+}
+
+function recordClickRed () {
+userInput(0)
+}
+
+function recordClickBlue () {
+userInput(1)
+}
+
+function recordClickGreen () {
+userInput(2)
+}
+
+function recordClickYellow () {
+userInput(3)
 }
