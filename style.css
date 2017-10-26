@@ -23,6 +23,7 @@
   flex-direction: row;
   justify-content: center;
   margin: 0px;
+  padding: 10px;
 }
 
 #easyScore {
@@ -34,6 +35,7 @@
   flex-direction: row;
   justify-content: center;
   margin: 0px;
+  padding: 10px;
 }
 
 #mediumScore {
@@ -45,6 +47,7 @@
   flex-direction: row;
   justify-content: center;
   margin: 0px;
+  padding: 10px;
 }
 
 #hardScore {
@@ -89,17 +92,7 @@
   margin: 5px;
 }
 
-.ry {
-  display: flex;
-  justify-content: center;
-}
-
 .level {
-  display: flex;
-  justify-content: center;
-}
-
-.game {
   display: flex;
   justify-content: center;
 }
@@ -123,4 +116,66 @@
   height: 40px;
   font-size: 20px;
   margin-top: 20px;
+}
+
+.loseMessage {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.winMessage {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.nextLevel {
+  visibility: hidden;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: white;
+  opacity: 1;
+  width: 100vh;
+  height: 100vh;
+}
+
+.lose {
+  visibility: hidden;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: white;
+  opacity: 1;
+  width: 100vh;
+  height: 100vh;
+}
+
+.game {
+  visibility: hidden;
+  display: flex;
+  justify-content: center;
+}
+
+.ry {
+  visibility: hidden;
+  display: flex;
+  justify-content: center;
+}
+
+.startPage{
+  visibility: visible;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: white;
+  opacity: 1;
+  width: 100vh;
+  height: 100vh;
 }

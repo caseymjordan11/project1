@@ -141,8 +141,6 @@ function checkEqual () {
       order = []
       counter = 0
       var score = level
-      $('.level').text('Wrong! You lose. Try Again.')
-
       if (easy.is(':checked') && (score > parseFloat($('#easyScore').text()))){
         $('#easyScore').text(score)
       }
@@ -157,6 +155,13 @@ function checkEqual () {
       document.getElementById('easy').disabled = false
       document.getElementById('medium').disabled = false
       document.getElementById('hard').disabled = false
+
+      $('.lose').css('visibility', 'visible')
+      $('.game').css('visibility', 'hidden')
+      $('.ry').css('visibility', 'hidden')
+
+      $('.level').text('Level: '+level)
+
     } else if (userInputTracker.length === order.length && userInputTracker[(userInputTracker.length-1)] === order[(order.length -1)]) {
       userInputTracker = []
       level+= 1
@@ -167,6 +172,9 @@ function checkEqual () {
         addLevel()
       }
     }
+    $('.nextLevel').css('visibility', 'visible')
+    $('.game').css('visibility', 'hidden')
+    $('.ry').css('visibility', 'hidden')
       $('.level').text('Level: '+level)
       document.getElementById('button').disabled = false
       break
@@ -197,4 +205,28 @@ function recordClickGreen () {
 function recordClickYellow () {
   flash.yellowFlash()
   userInput(3)
+}
+
+$('.continue').on('click', clear)
+
+$('.continue2').on('click', clear2)
+
+$('.start').on('click', startGame)
+
+function startGame() {
+  $('.startPage').css('visibility', 'hidden')
+  $('.ry').css('visibility', 'visible')
+  $('.game').css('visibility', 'visible')
+}
+
+function clear() {
+$('.lose').css('visibility', 'hidden')
+$('.ry').css('visibility', 'visible')
+$('.game').css('visibility', 'visible')
+}
+
+function clear2() {
+$('.nextLevel').css('visibility', 'hidden')
+$('.ry').css('visibility', 'visible')
+$('.game').css('visibility', 'visible')
 }
