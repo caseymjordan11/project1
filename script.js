@@ -1,9 +1,9 @@
 const button = $('#button')
 button.on('click', startLevel)
-const redBox = $('.game #red')
+const redBox = $('.ry #red')
 const blueBox = $('.game #blue')
 const greenBox = $('.game #green')
-const yellowBox = $('.game #yellow')
+const yellowBox = $('.ry #yellow')
 const easy = $('#easy')
 const medium = $('#medium')
 const hard = $('#hard')
@@ -55,6 +55,7 @@ function flashOne (i, count) {
 }
 
 function startLevel () {
+  document.getElementById('button').disabled = true
   if (easy.is(':checked')) {
     if (order.length === 0) {
     random()
@@ -130,6 +131,13 @@ blueBox.on('click', recordClickBlue)
 greenBox.on('click', recordClickGreen)
 yellowBox.on('click', recordClickYellow)
 
+
+
+
+
+
+
+
 var level = 1
 
 function checkEqual () {
@@ -140,6 +148,7 @@ function checkEqual () {
       counter = 0
       level = 1
       $('.level').text('Wrong! You lose. Try Again.')
+      document.getElementById('button').disabled = false
     } else if (userInputTracker.length === order.length && userInputTracker[(userInputTracker.length-1)] === order[(order.length -1)]) {
       userInputTracker = []
       level+= 1
@@ -151,6 +160,7 @@ function checkEqual () {
       }
     }
       $('.level').text('Level: '+level)
+      document.getElementById('button').disabled = false
       break
     }
   }

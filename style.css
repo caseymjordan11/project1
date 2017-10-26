@@ -17,26 +17,26 @@
   background: blue;
   opacity: .4;
   border: solid black 4px;
-  width: 200px;
-  height: 200px;
-  margin: 5px;
+  width: 150px;
+  height: 150px;
+  margin-right: 79px;
 }
 
 #green {
   background: green;
   opacity: .4;
   border: solid black 4px;
-  width: 200px;
-  height: 200px;
-  margin: 5px;
+  width: 150px;
+  height: 150px;
+  margin-left: 79px;
 }
 
 #red {
   background: red;
   opacity: .4;
   border: solid black 4px;
-  width: 200px;
-  height: 200px;
+  width: 150px;
+  height: 150px;
   margin: 5px;
 }
 
@@ -44,9 +44,14 @@
   background: yellow;
   opacity: .4;
   border: solid black 4px;
-  width: 200px;
-  height: 200px;
+  width: 150px;
+  height: 150px;
   margin: 5px;
+}
+
+.ry {
+  display: flex;
+  justify-content: center;
 }
 
 .level {
