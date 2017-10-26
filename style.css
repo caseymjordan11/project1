@@ -13,6 +13,46 @@
   justify-content: center;
 }
 
+.scores{
+  display: flex;
+  justify-content: center;
+}
+
+.highScoreEasy {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin: 0px;
+}
+
+#easyScore {
+  margin-left: 4px;
+}
+
+.highScoreMedium {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin: 0px;
+}
+
+#mediumScore {
+  margin-left: 4px;
+}
+
+.highScoreHard {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin: 0px;
+}
+
+#hardScore {
+  margin-left: 4px;
+}
+
+
+
 #blue {
   background: blue;
   opacity: .4;

@@ -7,7 +7,6 @@ const yellowBox = $('.ry #yellow')
 const easy = $('#easy')
 const medium = $('#medium')
 const hard = $('#hard')
-const extreme = $('#extreme')
 
 var order = []
 
@@ -56,6 +55,9 @@ function flashOne (i, count) {
 
 function startLevel () {
   document.getElementById('button').disabled = true
+  document.getElementById('easy').disabled = true
+  document.getElementById('medium').disabled = true
+  document.getElementById('hard').disabled = true
   if (easy.is(':checked')) {
     if (order.length === 0) {
     random()
@@ -131,24 +133,30 @@ blueBox.on('click', recordClickBlue)
 greenBox.on('click', recordClickGreen)
 yellowBox.on('click', recordClickYellow)
 
-
-
-
-
-
-
-
 var level = 1
-
 function checkEqual () {
   for (i=0; i<=userInputTracker.length-1; i++) {
     if (parseFloat(userInputTracker[i]) !== parseFloat(order[i])){
       userInputTracker = []
       order = []
       counter = 0
-      level = 1
+      var score = level
       $('.level').text('Wrong! You lose. Try Again.')
+
+      if (easy.is(':checked') && (score > parseFloat($('#easyScore').text()))){
+        $('#easyScore').text(score)
+      }
+      if (medium.is(':checked') && (score > parseFloat($('#mediumScore').text()))){
+        $('#mediumScore').text(score)
+      }
+      if (hard.is(':checked') && (score > parseFloat($('#hardScore').text()))){
+        $('#hardScore').text(score)
+      }
+      level = 1
       document.getElementById('button').disabled = false
+      document.getElementById('easy').disabled = false
+      document.getElementById('medium').disabled = false
+      document.getElementById('hard').disabled = false
     } else if (userInputTracker.length === order.length && userInputTracker[(userInputTracker.length-1)] === order[(order.length -1)]) {
       userInputTracker = []
       level+= 1
