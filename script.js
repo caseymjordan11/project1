@@ -159,6 +159,8 @@ function checkEqual () {
       $('.lose').css('visibility', 'visible')
       $('.game').css('visibility', 'hidden')
       $('.ry').css('visibility', 'hidden')
+      $('.gameBack').css('visibility', 'hidden')
+      $('.game2').css('visibility', 'hidden')
 
       $('.level').text('Level: '+level)
 
@@ -175,6 +177,8 @@ function checkEqual () {
     $('.nextLevel').css('visibility', 'visible')
     $('.game').css('visibility', 'hidden')
     $('.ry').css('visibility', 'hidden')
+    $('.gameBack').css('visibility', 'hidden')
+    $('.game2').css('visibility', 'hidden')
       $('.level').text('Level: '+level)
       document.getElementById('button').disabled = false
       break
@@ -217,16 +221,22 @@ function startGame() {
   $('.startPage').css('visibility', 'hidden')
   $('.ry').css('visibility', 'visible')
   $('.game').css('visibility', 'visible')
+  $('.gameBack').css('visibility', 'visible')
+  $('.game2').css('visibility', 'visible')
 }
 
 function clear() {
 $('.lose').css('visibility', 'hidden')
 $('.ry').css('visibility', 'visible')
 $('.game').css('visibility', 'visible')
+$('.gameBack').css('visibility', 'visible')
+$('.game2').css('visibility', 'visible')
 }
 
 function clear2() {
 $('.nextLevel').css('visibility', 'hidden')
 $('.ry').css('visibility', 'visible')
 $('.game').css('visibility', 'visible')
+$('.gameBack').css('visibility', 'visible')
+$('.game2').css('visibility', 'visible')
 }

@@ -1,3 +1,38 @@
+.gameBack {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: linear-gradient(45deg, blue, red, green, yellow);
+  width: 100vh;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  visibility: hidden;
+}
+
+.scorePosition {
+  display: flex;
+  justify-content: center;
+}
+
+.scoreLabel {
+  display: flex;
+  justify-content: center;
+}
+
+.scores{
+  display: flex;
+  justify-content: center;
+  background: lightblue;
+  font-family: helvetica, sans-serif;
+  width: 300px;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: solid black 4px;
+}
+
 .header{
   position: fixed;
   top: 15%;
@@ -5,7 +40,7 @@
   transform: translate(-50%, -50%);
   font-size: 70px;
   font-family: helvetica, sans-serif;
-  background: yellow;
+  background: lightblue;
   padding: 20px 70px;
   border: solid black 4px;
 }
@@ -16,7 +51,7 @@
   left: 50%;
   transform: translate(-50%, -50%);
   font-family: helvetica, sans-serif;
-  background: yellow;
+  background: lightblue;
   padding: 20px 70px;
   border: solid black 4px;
 }
@@ -27,9 +62,36 @@
   left: 50%;
   transform: translate(-50%, -50%);
   font-family: helvetica, sans-serif;
-  background: yellow;
+  background: lightblue;
   padding: 30px 30px;
   border: solid black 4px;
+}
+
+.button {
+  display: flex;
+  justify-content: center;
+}
+
+
+.game2{
+  background: lightblue;
+  width: 510px;
+  margin-left: auto;
+  margin-right: auto;
+  border: solid black 4px;
+  visibility: hidden;
+}
+
+
+
+#button {
+  background-color: lightblue;
+  text-shadow: -1px 1px black
+  border: solid black 4px;
+  font-family: helvetica, sans-serif;
+  padding: 10px 50px;
+  margin-top: 10px;
+  font-size: 20px;
 }
 
 .continue {
@@ -37,7 +99,7 @@
   top: 55%;
   left: 50%;
   transform: translate(-50%, -50%);
-  background-color: yellow;
+  background-color: lightblue;
   text-shadow: -1px 1px black
   border: solid black 4px;
   font-family: helvetica, sans-serif;
@@ -50,7 +112,7 @@
   top: 55%;
   left: 50%;
   transform: translate(-50%, -50%);
-  background-color: yellow;
+  background-color: lightblue;
   text-shadow: -1px 1px black
   border: solid black 4px;
   font-family: helvetica, sans-serif;
@@ -64,7 +126,7 @@
   left: 50%;
   transform: translate(-50%, -50%);
   font-family: helvetica, sans-serif;
-  background: yellow;
+  background: lightblue;
   padding: 30px 30px;
   border: solid black 4px;
 }
@@ -75,12 +137,6 @@
 }
 
 .intro {
-  display: flex;
-  justify-content: center;
-}
-
-
-.scores{
   display: flex;
   justify-content: center;
 }
@@ -173,18 +229,6 @@
   text-align: center;
 }
 
-.button {
-  display: flex;
-  justify-content: center;
-}
-
-#button {
-  width: 200px;
-  height: 40px;
-  font-size: 20px;
-  margin-top: 20px;
-}
-
 .nextLevel {
   visibility: hidden;
   position: fixed;
@@ -204,7 +248,6 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  background: white;
   opacity: 1;
   width: 100vh;
   height: 100vh;
@@ -222,7 +265,7 @@
   top: 55%;
   left: 50%;
   transform: translate(-50%, -50%);
-  background-color: yellow;
+  background-color: lightblue;
   text-shadow: -1px 1px black
   border: solid black 4px;
   font-family: helvetica, sans-serif;
@@ -242,7 +285,7 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  background: white;
+  background: lightblue;
   opacity: 1;
   width: 100vh;
   height: 100vh;
