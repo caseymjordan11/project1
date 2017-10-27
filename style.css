@@ -27,8 +27,27 @@
   justify-content: center;
   background: lightblue;
   font-family: helvetica, sans-serif;
-  width: 300px;
   padding: 10px;
+  margin-bottom: 10px;
+  border: solid black 4px;
+}
+
+.level {
+  padding: 0px;
+  margin: 5px;
+  font-size: 50px;
+}
+
+.levelStyle{
+  position: fixed;
+  top: 8%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: linear-gradient(45deg, blue, red, green, yellow);
+  background: lightblue;
+  font-family: helvetica, sans-serif;
+  width: 300px;
+  padding: 0px;
   margin-bottom: 10px;
   border: solid black 4px;
 }
