@@ -7,6 +7,7 @@ If the correct pattern has been entered, the user is sent to the next level, whe
 
 Example Screenshots: 
 
+Example screenshots of what the application looks like are included in the files section.
 
 Features: 
 There are three difficulties to this game, easy, medium and hard. Easy gives the user 1 second between pattern flashes, and the pattern builds upon itself as the levels increase.
