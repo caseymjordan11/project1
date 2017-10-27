@@ -40,7 +40,7 @@
 
 .levelStyle{
   position: fixed;
-  top: 8%;
+  top: 7%;
   left: 50%;
   transform: translate(-50%, -50%);
   background: linear-gradient(45deg, blue, red, green, yellow);
@@ -105,7 +105,7 @@
 
 #button {
   background-color: lightblue;
-  text-shadow: -1px 1px black
+  text-shadow: -1px 1px white;
   border: solid black 4px;
   font-family: helvetica, sans-serif;
   padding: 10px 50px;
@@ -119,7 +119,7 @@
   left: 50%;
   transform: translate(-50%, -50%);
   background-color: lightblue;
-  text-shadow: -1px 1px black
+  text-shadow: -1px 1px white;
   border: solid black 4px;
   font-family: helvetica, sans-serif;
   padding: 10px 50px;
@@ -132,7 +132,7 @@
   left: 50%;
   transform: translate(-50%, -50%);
   background-color: lightblue;
-  text-shadow: -1px 1px black
+  text-shadow: -1px 1px white;
   border: solid black 4px;
   font-family: helvetica, sans-serif;
   padding: 10px 50px;
@@ -197,7 +197,6 @@
 }
 
 
-
 #blue {
   background: blue;
   opacity: .4;
@@ -240,8 +239,15 @@
 }
 
 .difficulty {
-  display: flex;
-  justify-content: center;
+  position: fixed;
+  top: 55%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 20px;
+  font-family: helvetica, sans-serif;
+  background: lightblue;
+  padding: 10px;
+  border: solid black 4px;
 }
 
 .h1 {
@@ -281,11 +287,11 @@
 
 .start {
   position: fixed;
-  top: 55%;
+  top: 65%;
   left: 50%;
   transform: translate(-50%, -50%);
   background-color: lightblue;
-  text-shadow: -1px 1px black
+  text-shadow: -1px 1px white;
   border: solid black 4px;
   font-family: helvetica, sans-serif;
   padding: 10px 50px;

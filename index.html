@@ -9,8 +9,16 @@
     <div class="startPage">
       <h1 class = 'header'>Simon</h1>
       <div class="instruc">
-      <h3 class = "instructions">Instructions</h1>
-      <p class = "intro">Simon is a memorization game. Watch the pattern and then repeat it back. Levels increase in difficutly. Good luck!</p>
+      <h3 class = "instructions">Instructions</h3>
+      <p class = "intro">Simon is a memorization game. Watch the pattern and then repeat it back. Levels increase in difficutly. Choose difficulty and start game. Good luck!</p>
+      </div>
+      <div class="difficulty">
+        <input type="radio" id = "easy" name="difficulty" value="Easy">
+        <label for="easy">Easy</label>
+        <input type="radio" id = "medium" name="difficulty" value="Medium">
+        <label for="medium">Medium</label>
+        <input type="radio" id = "hard" name="difficulty" value="Hard">
+        <label for="hard">Hard</label>
       </div>
       <input class = "start" type="button" name="start" value="Start Game">
     </div>
@@ -26,11 +34,6 @@
     </div>
 
     <div class="gameBack">
-        <div class="difficulty">
-          <input type="radio" id = "easy" name="difficulty" value="easy" checked = true>Easy</input>
-          <input type="radio" id = "medium" name="difficulty" value="medium">Medium</input>
-          <input type="radio" id = "hard" name="difficulty" value="hard">Hard</input>
-        </div>
 
         <div class="levelStyle">
           <h2 class = 'level'>Level: 1</h2>

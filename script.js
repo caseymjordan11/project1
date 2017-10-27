@@ -227,10 +227,7 @@ function startGame() {
 
 function clear() {
 $('.lose').css('visibility', 'hidden')
-$('.ry').css('visibility', 'visible')
-$('.game').css('visibility', 'visible')
-$('.gameBack').css('visibility', 'visible')
-$('.game2').css('visibility', 'visible')
+$('.startPage').css('visibility', 'visible')
 }
 
 function clear2() {
