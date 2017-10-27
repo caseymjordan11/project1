@@ -6,88 +6,77 @@
     <link rel="stylesheet" href="style.css" type = "text/css">
   </head>
   <body>
-    <div class="startPage">
-      <h1 class = 'header'>Simon</h1>
-      <div class="instruc">
-      <h3 class = "instructions">Instructions</h3>
-      <p class = "intro">Simon is a memorization game. Watch the pattern and then repeat it back. Levels increase in difficutly. Choose difficulty and start game. Good luck!</p>
+    <div class = 'container'>
+      <div class="startPage">
+        <h1 class = 'header'>Simon</h1>
+        <div class="instruc">
+        <h3 class = "instructions">Instructions</h3>
+        <p class = "intro">Simon is a memorization game. Watch the pattern and then repeat it back. Levels increase in difficutly. Choose difficulty and start game. Good luck!</p>
+        </div>
+        <div class="difficulty">
+          <input type="radio" id = "easy" name="difficulty" value="Easy">
+          <label for="easy">Easy</label>
+          <input type="radio" id = "medium" name="difficulty" value="Medium">
+          <label for="medium">Medium</label>
+          <input type="radio" id = "hard" name="difficulty" value="Hard">
+          <label for="hard">Hard</label>
+        </div>
+        <input class = "start" type="button" name="start" value="Start Game">
       </div>
-      <div class="difficulty">
-        <input type="radio" id = "easy" name="difficulty" value="Easy">
-        <label for="easy">Easy</label>
-        <input type="radio" id = "medium" name="difficulty" value="Medium">
-        <label for="medium">Medium</label>
-        <input type="radio" id = "hard" name="difficulty" value="Hard">
-        <label for="hard">Hard</label>
+      <div class="lose">
+        <h1 class = "loseMessage">You lose, please play again!</h1>
+        <input class = 'continue' type="button" name="continue" value="Continue">
       </div>
-      <input class = "start" type="button" name="start" value="Start Game">
-    </div>
+      <div class="nextLevel">
+        <h1 class = "winMessage">Correct! Next level: </h1>
+        <input class = 'continue2' type="button" name="continue" value="Continue">
+      </div>
+      <div class="gameBack">
+          <div class="levelStyle">
+            <h2 class = 'level'>Level: 1</h2>
+          </div>
 
-    <div class="lose">
-      <h1 class = "loseMessage">You lose, please play again!</h1>
-      <input class = 'continue' type="button" name="continue" value="Continue">
-    </div>
-
-    <div class="nextLevel">
-      <h1 class = "winMessage">Correct! Next level: </h1>
-      <input class = 'continue2' type="button" name="continue" value="Continue">
-    </div>
-
-    <div class="gameBack">
-
-        <div class="levelStyle">
-          <h2 class = 'level'>Level: 1</h2>
-        </div>
-
-        <div class="scoreLabel">
-          <h3 class = 'scores'>High Scores:</h3>
-        </div>
-
-        <div class="scorePosition">
-          <div class="scores">
-            <div class="highScoreEasy">
-              <h4 class = 'highScore'>Easy: </h4>
-              <h4 class = 'highScore' id = 'easyScore'>0</h4>
-            </div>
-            <div class="highScoreMedium">
-              <h4 class = 'highScore'>Medium: </h4>
-              <h4 class = 'highScore' id = 'mediumScore'>0</h4>
-            </div>
-            <div class="highScoreMedium">
-              <h4 class = 'highScore'>Hard: </h4>
-              <h4 class = 'highScore' id = 'hardScore'>0</h4>
+          <div class="scoreLabel">
+            <h3 class = 'scores'>High Scores:</h3>
+          </div>
+          <div class="scorePosition">
+            <div class="scores">
+              <div class="highScoreEasy">
+                <h4 class = 'highScore'>Easy: </h4>
+                <h4 class = 'highScore' id = 'easyScore'>0</h4>
+              </div>
+              <div class="highScoreMedium">
+                <h4 class = 'highScore'>Medium: </h4>
+                <h4 class = 'highScore' id = 'mediumScore'>0</h4>
+              </div>
+              <div class="highScoreMedium">
+                <h4 class = 'highScore'>Hard: </h4>
+                <h4 class = 'highScore' id = 'hardScore'>0</h4>
+              </div>
             </div>
           </div>
-        </div>
-
-
-        <div class="game2">
-          <div class="ry">
-            <div id="red">
+          <div class="game2">
+            <div class="ry">
+              <div id="red">
+              </div>
+            </div>
+            <div class="game">
+              <div id="blue">
+              </div>
+              <div id="green">
+              </div>
+            </div>
+            <div class="ry">
+              <div id="yellow">
+              </div>
             </div>
           </div>
-          <div class="game">
-            <div id="blue">
-            </div>
-            <div id="green">
-            </div>
+          <div class="button">
+          <button type="button" id = button>Start Level</button>
           </div>
-          <div class="ry">
-            <div id="yellow">
-            </div>
-          </div>
-        </div>
-
-
-        <div class="button">
-        <button type="button" id = button>Start Level</button>
-        </div>
+      </div>
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+      <script type="text/javascript" src="script.js"></script>
     </div>
-
-
-
-
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-    <script type="text/javascript" src="script.js"></script>
   </body>
 </html>
