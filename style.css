@@ -1,8 +1,16 @@
 .body{
-  height: 1000px;
-  width: 1000px;
+  height: 100vh;
+  /*^^(vh = view height) Often times a better way to ensure content is distributed vertically across the screen
+  without having to restrict it to a static height*/
+  /*Generally, you shouldn't need to restrict the width of top level containing elements
+  (like body) as they will automatically expand to the of the screen. You may, however,
+  want to use a `min-width` to prevent resizing in too far */
 }
 
+  /*For all class and id names, use kabob-case::after
+  .game-back {
+
+  }*/
  .gameBack {
   position: relative;
   background: linear-gradient(45deg, blue, red, green, yellow);
@@ -90,7 +98,8 @@
 }
 
 
-
+/*particularly with id names, you want to be more semantic. `#button` isn't really
+specific enough to describe what it does / why it is unique*/
 #button {
   background-color: lightblue;
   text-shadow: -1px 1px white;
@@ -126,6 +135,7 @@
   padding: 10px 50px;
   font-size: 20px;
 }
+/*Are two classes above applying the same styling? Is this repetition neccessary?*/
 
 .winMessage {
   position: fixed;
@@ -148,6 +158,13 @@
   padding: 20px 70px;
   border: solid black 4px;
 }
+
+/*^^^ Note how many of your classes apply similar styling (background, border,
+  rotations, etc.). Think about how you could condense these shared styles into their
+  own class that is added independently to each element that needs it. Also, consider
+  looking into a CSS methodology (such as BEM) for how to compose CSS classes to make
+   your code more DRY: https://css-tricks.com/bem-101/*/
+
 
 .instructions {
   display: flex;
@@ -231,6 +248,9 @@
   height: 150px;
   margin: 5px;
 }
+
+/*^^^ Definitely consider how you could refactor the above styling to condense it
+into classes containing shared styles while using the ids to apply the unique styles*/
 
 .level {
   display: flex;

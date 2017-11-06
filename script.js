@@ -1,18 +1,29 @@
+$(document).ready(function () {
+// To ensure DOM elements are loaded / scope in global variables, use a document.ready
+// when using jQuery
+
 const button = $('#button')
-button.on('click', startLevel)
-const redBox = $('.ry #red')
-const blueBox = $('.game #blue')
-const greenBox = $('.game #green')
-const yellowBox = $('.ry #yellow')
+const redBox = $('#red')
+const blueBox = $('#blue')
+const greenBox = $('#green')
+const yellowBox = $('#yellow')
+// As ids are unique DOM elements by definition, you don't need to add traversal logic
+// to your jQuery selectors
 const easy = $('#easy')
 const medium = $('#medium')
 const hard = $('#hard')
 
 var order = []
 
+var keys = Object.keys(flash)
+var flashFunc = []
+var counter = 0
+// ^^^ Best practice is to keep all variable declarations at the top of the file to make
+// them apparent. After variable declarations, all functions; then lastly, event listeners
+
 
 function random() {
-  var num = (Math.floor(Math.random() * (3-0+1)) + 0)
+  var num = Math.floor(Math.random() * 4)
   order.push(num)
 }
 
@@ -22,6 +33,8 @@ function addLevel () {
   var num = (Math.floor(Math.random() * (3-0+1)) + 0)
   order.push(num)
 }
+// ^^^ the above `addLevel` function seems to be doing the same thing as `random`;
+// are both of them neccessary?
 
 
 
@@ -43,10 +56,11 @@ var flash = {
     setTimeout(resetYellow, 400)
   }
 }
-
-var keys = Object.keys(flash)
-var flashFunc = []
-var counter = 0
+// ^^^ I would either pull together the above "flash" methods into a `class` with
+// the DOM elements that they operate on OR (in consistency with your current organization)
+// just have them be top level functions. In either case, think about how you could
+// refactor to just have one function / method called `flash` that could conditionally
+// flash the related DOM elements based on some parameter
 
 function flashOne (i, count) {
   counter += count
@@ -58,44 +72,69 @@ function startLevel () {
   document.getElementById('easy').disabled = true
   document.getElementById('medium').disabled = true
   document.getElementById('hard').disabled = true
+  // ^^^ either use jQuery everywhere for DOM selection / manipulation or Vanilla JS
+  // everywhere for this, but be consistent
+  // Also, think about whether or not this operation of setting all buttons `disabled`
+  // property can be abstracted into its own function and then simply called here
+  // (more DRY and modular)
   if (easy.is(':checked')) {
     if (order.length === 0) {
-    random()
-    random()
-    $('.level').text('Level: '+level)
-    for (i=0; i<order.length; i++){
-    flashOne(i, 1000)}
-  } else {
+      random()
+      random()
+      $('.level').text('Level: '+level)
+      for (let i=0; i<order.length; i++){
+        // ^^^ use let to scope in `i`
+        flashOne(i, 1000)
+      }
+    } else {
+      counter = 0
+      for (let i=0; i<order.length; i++){
+        flashOne(i, 1000)
+      }
+    }
+  } else if (medium.is(':checked')) {
+    if (order.length === 0) {
+      random()
+      random()
+      $('.level').text('Level: '+level)
+      for (i=0; i<order.length; i++){
+        flashOne(i, 500)
+      }
+    } else {
+      counter = 0
+      for (i=0; i<order.length; i++){
+        flashOne(i, 500)
+      }
+    }
+  } else if (hard.is(':checked')){
+    if (order.length === 0) {
+      random()
+      random()
+      $('.level').text('Level: '+level)
+      for (i=0; i<order.length; i++){
+      flashOne(i, 500)}
+    } else {
     counter = 0
     for (i=0; i<order.length; i++){
-    flashOne(i, 1000)}
-  }
-} else if (medium.is(':checked')) {
-  if (order.length === 0) {
-  random()
-  random()
-  $('.level').text('Level: '+level)
-  for (i=0; i<order.length; i++){
-  flashOne(i, 500)}
-  } else {
-  counter = 0
-  for (i=0; i<order.length; i++){
-  flashOne(i, 500)}
-  }
-} else if (hard.is(':checked')){
-  if (order.length === 0) {
-  random()
-  random()
-  $('.level').text('Level: '+level)
-  for (i=0; i<order.length; i++){
-  flashOne(i, 500)}
-} else {
-  counter = 0
-  for (i=0; i<order.length; i++){
-  flashOne(i, 500)}
+    flashOne(i, 500)}
+    }
   }
 }
-}
+// ^^^ Look at how you could refactor to:
+// - Break this large `startLevel` function up into smaller functions that can be called
+// from within startLevel
+// - Regarding those smaller functions, think about how you could abstract some of the code
+// above to be less repetive and instead rely on variable parameters. For example:
+//
+// } else if (hard.is(':checked')){
+//   if (order.length === 0) {
+//     random()
+//     setLevel('hard')
+//     flashSequence()
+//   }
+// }
+
+
 
 
 
@@ -105,6 +144,18 @@ function redLoad(){
 function resetRed(){
   redBox.css('opacity', '.4')
 }
+
+// function loadBox (color) {
+//   if (color == 'red') {
+//     redBox.css('opacity', '1')
+//   } else if...
+// }
+//
+// function resetBox (color) {
+//   if (color === 'red') {
+//     redBox.css('opacity', '.4')
+//   } else if...
+// }
 
 function blueLoad(){
   blueBox.css('opacity', '1')
@@ -128,10 +179,6 @@ function resetGreen(){
 }
 
 var userInputTracker = []
-redBox.on('click', recordClickRed)
-blueBox.on('click', recordClickBlue)
-greenBox.on('click', recordClickGreen)
-yellowBox.on('click', recordClickYellow)
 
 var level = 1
 function checkEqual () {
@@ -185,6 +232,8 @@ function checkEqual () {
     }
   }
 }
+// ^^^ Break up checkEqual into smaller functions and see if there is overlap with the
+// new functions from breaking up `startLevel`
 
 function userInput (val) {
   userInputTracker.push(val)
@@ -211,12 +260,6 @@ function recordClickYellow () {
   userInput(3)
 }
 
-$('.continue').on('click', clear)
-
-$('.continue2').on('click', clear2)
-
-$('.start').on('click', startGame)
-
 function startGame() {
   $('.startPage').css('visibility', 'hidden')
   $('.ry').css('visibility', 'visible')
@@ -226,14 +269,29 @@ function startGame() {
 }
 
 function clear() {
-$('.lose').css('visibility', 'hidden')
-$('.startPage').css('visibility', 'visible')
+  $('.lose').css('visibility', 'hidden')
+  $('.startPage').css('visibility', 'visible')
 }
 
 function clear2() {
-$('.nextLevel').css('visibility', 'hidden')
-$('.ry').css('visibility', 'visible')
-$('.game').css('visibility', 'visible')
-$('.gameBack').css('visibility', 'visible')
-$('.game2').css('visibility', 'visible')
+  $('.nextLevel').css('visibility', 'hidden')
+  $('.ry').css('visibility', 'visible')
+  $('.game').css('visibility', 'visible')
+  $('.gameBack').css('visibility', 'visible')
+  $('.game2').css('visibility', 'visible')
 }
+
+// All event listeners together at bottom of script
+
+button.on('click', startLevel)
+
+redBox.on('click', recordClickRed)
+blueBox.on('click', recordClickBlue)
+greenBox.on('click', recordClickGreen)
+yellowBox.on('click', recordClickYellow)
+
+$('.continue').on('click', clear)
+$('.continue2').on('click', clear2)
+$('.start').on('click', startGame)
+
+})
